@@ -2253,6 +2253,13 @@ function ConRO:AddStandardButton(button, hotkey)
             self:AddButton(spellId, button, hotkey)
         end
     end
+	
+	if not type and button and button.HasAction then
+		local id, _, HasAction, spellID = button:HasAction()
+		if spellID then
+			self:AddButton(spellID, button)
+		end
+	end
 end
 
 function ConRO:DefAddButton(spellID, button, hotkey)
